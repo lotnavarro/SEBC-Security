@@ -11,7 +11,7 @@ yum -y install sssd-client sssd-tools sssd oddjob-mkhomedir authconfig
 
 
 
--export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>&nbsp;
+-export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b><br>
 -export KERBEROS_REALM=<b>LOT.COM</b>&nbsp;
 -export LDAP_SEARCH_BASE=dc=<b>southcentralus,dc=cloudapp,dc=azure,dc=com</b>&nbsp;
 
