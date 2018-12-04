@@ -31,7 +31,6 @@ kdc.conf<br>
 <br>
 krb5.conf
 <br>
-# Configuration snippets may be placed in this directory as well
 includedir /etc/krb5.conf.d/
 <br>
 [logging]
@@ -55,19 +54,18 @@ default_realm = LOT.COM
   admin_server = server.southcentralus.cloudapp.azure.com
  }
 <br>
-[domain_realm]
-# .example.com = EXAMPLE.COM
-# example.com = EXAMPLE.COM
-.lot.com=LOT.COM
-lot.com=LOT.COM
+[domain_realm]<br>
+
+.lot.com=LOT.COM<br>
+lot.com=LOT.COM<br>
 <br>
 
 
 
-kdb5_util create -s -r LOT.COM
+kdb5_util create -s -r LOT.COM<br>
 <br>passw0rd
 <br>
-systemctl start krb5kdc kadmin
+systemctl start krb5kdc kadmin<br>
 <br>systemctl enable krb5kdc kadmin
 <br>
 
@@ -83,7 +81,7 @@ yum install -y krb5-workstation<br>
 
 krb5.conf<br>
 
-# Configuration snippets may be placed in this directory as well
+ 
 includedir /etc/krb5.conf.d/
 <br>
 [logging]
