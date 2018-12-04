@@ -46,7 +46,7 @@ includedir /etc/krb5.conf.d/
  rdns = false
  pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
 default_realm = LOT.COM
-# default_ccache_name = KEYRING:persistent:%{uid}
+
 <br>
 [realms]
  LOT.COM = {
@@ -97,7 +97,7 @@ includedir /etc/krb5.conf.d/
  rdns = false
  pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
 default_realm = <b>LOT.COM</b>
-# default_ccache_name = KEYRING:persistent:%{uid}
+
 <br>
 [realms]<br>
  LOT.COM = {<br>
@@ -106,9 +106,7 @@ default_realm = <b>LOT.COM</b>
  }<br>
 
 [domain_realm]<br>
-# .example.com = EXAMPLE.COM
-# example.com = EXAMPLE.COM<br><b>
-.lot.com=LOT.COM<br>
+<b>.lot.com=LOT.COM<br>
 lot.com=LOT.COM<br></b>
 
 resultado...<br>
