@@ -22,11 +22,14 @@ BASE ${LDAP_SEARCH_BASE}" >> /etc/openldap/ldap.conf
 ## Server
 
 What things you need to install the software and how to install themyum -y install openldap compat-openldap openldap-servers openldap-servers-sql openldap-devel
+<br>
 
+export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b><br>
 
-export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>
-export LDAP_SEARCH_BASE=<b>dc=southcentralus,dc=cloudapp,dc=azure,dc=com</b>
-export LDAP_ROOT_DC=<b>southcentralus</b>
+export LDAP_SEARCH_BASE=<b>dc=southcentralus,dc=cloudapp,dc=azure,dc=com</b><br>
+
+export LDAP_ROOT_DC=<b>southcentralus</b><br>
+
 export COUNTRY=US
 export STATE=TX
 export LOCALITY=Austin
@@ -36,9 +39,11 @@ export PASSWORD=passw0rd
 export EMAIL=root@$(hostname -d)
 export CERTS=/etc/openldap/certs
 
+<br>
 
  
 sed -ibak 's#SLAPD_URLS=\"ldapi:/// ldap:///\"#SLAPD_URLS=\"ldapi:/// ldap:/// ldaps:///\"#g' /etc/sysconfig/slapd
+<br>
 
 
 service slapd start
@@ -70,12 +75,17 @@ ldapmodify -Y EXTERNAL  -H ldapi:/// -f monitor.ldif
 
 cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
 chown ldap:ldap /var/lib/ldap/*
+<br>
 
-ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
-ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
-ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif<br>
 
-service slapd restart
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif<br>
+
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif<br>
+
+
+service slapd restart<br>
+
 
 echo "dn: ${LDAP_SEARCH_BASE}
 objectClass: top
@@ -226,6 +236,7 @@ gidNumber: 20002
 objectClass: posixGroup
 memberUid: user2
 memberUid: user4" > populate.ldif
+<br>
 
 ldapadd -x -D cn=admin,${LDAP_SEARCH_BASE} -H ldap://${LDAP_SERVER}:389 -w ${PASSWORD} -f populate.ldif
 
