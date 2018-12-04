@@ -9,26 +9,26 @@ yum -y install sssd-client sssd-tools sssd oddjob-mkhomedir authconfig
 
 ## Configuración e inicialización de servicios
 
-SSSD
-
--export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>
--export KERBEROS_REALM=<b>LOT.COM</b>
--export LDAP_SEARCH_BASE=dc=<b>southcentralus,dc=cloudapp,dc=azure,dc=com</b>
 
 
--authconfig --enableshadow --passalgo=sha512 --enablesssd --enablesssdauth --enablemkhomedir --updateall
+-export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>&nbsp;
+-export KERBEROS_REALM=<b>LOT.COM</b>&nbsp;
+-export LDAP_SEARCH_BASE=dc=<b>southcentralus,dc=cloudapp,dc=azure,dc=com</b>&nbsp;
+
+
+-authconfig --enableshadow --passalgo=sha512 --enablesssd --enablesssdauth --enablemkhomedir --updateall&nbsp;
 
 echo "[sssd]
 config_file_version = 2
 services = nss, pam, autofs
 domains = default
 debug_level = 0
-
+&nbsp;
 [nss]
 filter_users = root,ldap,named,avahi,haldaemon,dbus,radiusd,news,nscd
-
+&nbsp;
 [pam]
-
+&nbsp;
 [domain/default]
 debug_level = 0
 id_provider = ldap
@@ -53,13 +53,13 @@ ldap_tls_cacertdir = ${CERTS}
 krb5_kdcip = ${LDAP_SERVER}
 krb5_server = ${LDAP_SERVER}
 krb5_realm = ${KERBEROS_REALM}
-
+&nbsp;
 [autofs]" > /etc/sssd/sssd.conf
-
+&nbsp;
 chmod 600 /etc/sssd/sssd.conf
-
--<b>systemctl start sssd.service</b>
--<b>systemctl enable sssd.service</b>
+&nbsp;
+-<b>systemctl start sssd.service</b>&nbsp;
+-<b>systemctl enable sssd.service</b>&nbsp;
 
 centos 6x commands:
 -
