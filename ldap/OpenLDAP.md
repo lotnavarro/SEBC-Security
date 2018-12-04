@@ -6,8 +6,8 @@ Se instala el cliente en todos los servidores y el servicio de server en el equi
 
 yum -y install openldap-clients
 
-export LDAP_SERVER=server.southcentralus.cloudapp.azure.com
-export LDAP_SEARCH_BASE=dc=southcentralus,dc=cloudapp,dc=azure,dc=com
+export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>
+export LDAP_SEARCH_BASE=<b>dc=southcentralus,dc=cloudapp,dc=azure,dc=com</b>
 export CERTS=/etc/openldap/certs
 export DOMAIN=$(hostname -d | tr [a-z] [A-Z])
 
@@ -24,9 +24,9 @@ BASE ${LDAP_SEARCH_BASE}" >> /etc/openldap/ldap.conf
 What things you need to install the software and how to install themyum -y install openldap compat-openldap openldap-servers openldap-servers-sql openldap-devel
 
 
-export LDAP_SERVER=server.southcentralus.cloudapp.azure.com
-export LDAP_SEARCH_BASE=dc=southcentralus,dc=cloudapp,dc=azure,dc=com
-export LDAP_ROOT_DC=southcentralus
+export LDAP_SERVER=<b>server.southcentralus.cloudapp.azure.com</b>
+export LDAP_SEARCH_BASE=<b>dc=southcentralus,dc=cloudapp,dc=azure,dc=com</b>
+export LDAP_ROOT_DC=<b>southcentralus</b>
 export COUNTRY=US
 export STATE=TX
 export LOCALITY=Austin
