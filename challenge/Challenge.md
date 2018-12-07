@@ -71,7 +71,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout $(hostname -f).key
 <br>
 /opt/cloudera/security/pki/
 <br>
-<b>DATANODE 3</b>
+<b>DATANODE 3</b><br>
 export JAVA_HOME=/usr/java/jdk1.7.0_67-cloudera/<br>
 export PATH=$JAVA_HOME/bin:$PATH<br>
 <br>
@@ -92,7 +92,7 @@ export PATH=$JAVA_HOME/bin:$PATH<br>
 <br>
 .bash_profile<br>
 
-	<br>
+<br>
 keytool -importkeystore -srckeystore lot-dn3.southcentralus.cloudapp.azure.com.p12 -destkeystore lot-dn3.southcentralus.cloudapp.azure.com.jks -srcstoretype pkcs12 -deststoretype JKS<br>
 <br>
 openssl pkcs12 -in lot-dn3.southcentralus.cloudapp.azure.com.p12 -inkey lot-dn3.southcentralus.cloudapp.azure.com.key -out lot-dn3.southcentralus.cloudapp.azure.com.pem -nodes -clcerts
@@ -158,8 +158,16 @@ Los comandos para la creación de gobierno en sentry para dicho cliente son:<br>
 ## Questions
 - Describe what is required to ensure data is encrypted and ensure managers and analysts can read data from HDFS and Hive<br>
 
-*
+* Habilitar DARE, en su versión "HDFS Transparent Encryption".<br>
+Crear las zonas o zona encriptada para HDFS y la zona correpondiente para las tablas de HIVE (en el mismo hdfs)<br>
 
+Si ya existen datos, es necesario crear carpetas temporales para mandar la información o renombrar las carpetas y crear las nuevas encriptadas con la nomenclatura definida por el area de gobierno. Y al crear las nuevas carpetas o zonas encritpadas, empezar a generar los objetos o empezar a copiar la información para que ésta se encripte. <br>
+
+Lo mismo con las tablas de hive, recrearlas si ya existen o copiarlas a una zona temporal, y cuando este la nueva zona para almacenar las tablas de hive, vaciar la data o crear nueva data. <br>
+
+
+
+<br>
 - Describe the capabilities of Navigator Audit, Lineage, and Metadata. What is it useful for?<br>
 
 *Navigator Audit, es un servicio que "visualiza" y graba cada acción que se realiza en el Cluster, en los nodos, a nivel servicio o usuario. <br>
