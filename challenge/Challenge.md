@@ -158,7 +158,7 @@ Los comandos para la creación de gobierno en sentry para dicho cliente son:<br>
 ## Questions
 - Describe what is required to ensure data is encrypted and ensure managers and analysts can read data from HDFS and Hive<br>
 
-* Habilitar DARE, en su versión "HDFS Transparent Encryption".<br>
+*Habilitar DARE, en su versión "HDFS Transparent Encryption".<br>
 Crear las zonas o zona encriptada para HDFS y la zona correpondiente para las tablas de HIVE (en el mismo hdfs)<br>
 
 Si ya existen datos, es necesario crear carpetas temporales para mandar la información o renombrar las carpetas y crear las nuevas encriptadas con la nomenclatura definida por el area de gobierno. Y al crear las nuevas carpetas o zonas encritpadas, empezar a generar los objetos o empezar a copiar la información para que ésta se encripte. <br>
