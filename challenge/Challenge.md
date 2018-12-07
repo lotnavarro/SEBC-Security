@@ -22,7 +22,7 @@ CLOUDERA's Security Services Enablement Bootcamp (SEBC) - CDMX Diciembre 7, 2018
 - Describe the capabilities of Navigator Audit, Lineage, and Metadata. What is it useful for?<br>
 - Which technology would you use for encrypting Kafka, Kudu and Flume volumes?<br>
 
-##TLS COMNMANDS, results evidence (one server) in images...
+## TLS COMNMANDS, results evidence (one server) in images...
 <br>
 <b>MASTER</b>
 <br>
